@@ -1,0 +1,10 @@
+Max 1 0 0 1 0
+Laura 0 1 0 0 1
+Ben 1 1 0 0 0
+Anna 0 0 1 0 1
+Paul 1 0 1 1 0
+Emma 0 1 1 0 0
+Leon 1 1 0 1 1
+Mia 0 0 1 0 1
+Lukas 1 0 1 1 0
+Lisa 0 1 0 1 0

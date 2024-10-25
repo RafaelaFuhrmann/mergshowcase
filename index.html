@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/resources/style.css">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <!-- Einbindung von Brython -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/brython@3.11.0/brython.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/brython@3.11.0/brython_stdlib.js"></script>
+
+</head>
+<body id="app" onload="brython()">
+    <header>
+        <a href="../index.html"><img src="/resources/images/MERG Pillow.png" alt=""></a>
+        <a href="profile.html"><img class="profile" src="/resources/images/profile_icon.png" alt=""></a>
+    </header>
+    <main>
+        <form id="add-form" class="daten">
+            <div class="container">
+                <h2>Name</h2>
+                <input type="text" name="username" id="name">
+                <div class="sport">
+                    <h3>Laufen</h3> <input type="checkbox" name="laufen" id="laufen">
+                </div>
+                <div class="sport">
+                    <h3>Gewichtheben</h3> <input type="checkbox" name="gewichtheben" id="gewichtheben">
+                </div>
+                <div class="sport">
+                    <h3>Schwimmen</h3> <input type="checkbox" name="schwimmen" id="schwimmen">
+                </div>
+                <div class="sport">
+                    <h3>Fahrradfahren</h3> <input type="checkbox" name="fahrradfahren" id="fahrradfahren">
+                </div>
+                <div class="sport">
+                    <h3>Wandern</h3> <input type="checkbox" name="wandern" id="wandern">               
+                </div>
+                <button type="submit" class="button" id="add-button">Submit</button>
+            </div>
+        </form>
+        
+        <div id="output">
+            <h2 id="anleitung">Gib deinen Spitznamen und deine lieblings Sportarten an.</h2>
+            <div class="match">
+                <img id="image" src="" alt="">
+                <h2 id="match"></h2>
+                <p id="common_sport"></p>
+            </div>
+            <button class="button" id="prev-button">◄</button>
+            <button class="button" id="next-button">►</button>
+        </div>
+    </main>
+    <script type="text/python" src="/resources/main.py"></script>
+</body>
+</html>
