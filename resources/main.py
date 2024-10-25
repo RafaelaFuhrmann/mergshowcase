@@ -65,7 +65,7 @@ def update_display():
     if matches and len(matches) > 0:  # Überprüfen, ob die Liste nicht leer ist
         document['anleitung'].text = f"Hi {user[0]}! Deine Matches:"
         display_element.text = f"{matches[current_index][1]} {matches[current_index][0]} %"
-        document['image'].attrs['src'] = f"/resources/images/{matches[current_index][1].lower()}.png"
+        document['image'].attrs['src'] = f"./resources/images/{matches[current_index][1].lower()}.png"
         for sport in matches[current_index][2]:
             if sport != matches[current_index][2][-1]:
                 common += f"{sport.capitalize()} | "
