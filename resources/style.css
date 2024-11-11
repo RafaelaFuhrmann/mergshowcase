@@ -1,7 +1,31 @@
+:root {
+    --background-color: #faf9f6;
+    --background-two: #faf9f6da;
+    --background-three: #fefefe;
+    --text-color: #1f1f1f;
+    --text-two: grey;
+    --accent-color: #f57449;
+    --image: url(./images/background.png)
+}
+
+.dark_mode {
+    --background-color: #1f1f1f;
+    --background-two: #1f1f1fda;
+    --background-three: #282828;
+    --text-color: #faf9f6;
+    --text-two: #faf9f6;
+    --image: url(./images/background_dark.png)
+}
+
 body {
     margin: 0;
+    color: var(--text-color);
+    background-color: var(--background-color);
+    background-image: var(--image);
+    background-repeat: no-repeat;
+    background-size: cover;
 }
-  
+
 #app {
     height: 100vh;
 
@@ -12,43 +36,49 @@ body {
     grid-template-areas: 
         'header'
         'main';
-    background-color: #faf9f6;
     font-family: "Public Sans";
 }
 
 html {
     scroll-behavior: smooth;
-  }
-  
+}
+
 /* Scrollbar */
 ::-webkit-scrollbar {
     width: 10px;
 }
-  
+
 ::-webkit-scrollbar-track {
-    background: var(--main-text-color); 
+    background: #777; 
 }
-    
+  
 ::-webkit-scrollbar-thumb {
     background: #888; 
 }
-  
+
 ::-webkit-scrollbar-thumb:hover {
     background: #555; 
 }
-  
+
+/* Header */
 
 #app > header {
     grid-area: header;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    background-color: #f57449;
+    background-color: var(--accent-color);
     align-items: center;
     height: 3rem;
 }
 
+#app > header div {
+    display: grid;
+    grid-template-columns: 1fr 10%;
+}
+
 #app > header a {
     display: grid;
+    width: 30px;
 }
 
 #app > header img {
@@ -62,6 +92,7 @@ html {
     justify-self: end;
 }
 
+/* Main */
 
 #app > main {
     grid-area: main;
@@ -71,22 +102,33 @@ html {
     grid-template-columns: minmax(0%,10%) 1fr 1fr minmax(0%,10%);
 }
 
-
 .daten {
     font-size: 1rem;
     justify-self: center;
-    grid-column: 3/4;
     align-self: center;
+    grid-column: 2/3;
     line-height: 50%;
+    background-color: var(--background-two);
+    border-radius: 5px;
+}
+
+.container {
+    display: grid;
+    align-self: center;
+    justify-items: start;
+    margin: 1.5rem;
 }
 
 #output {
-    grid-column: 2/3;
+    grid-column: 3/4;
     grid-row: 1/2;
     justify-self: center;
     align-self: center;
     display: grid;
     grid-template-columns: 1fr 1fr;
+    background-color: var(--background-two);
+    border-radius: 5px;
+    padding: 10px;
 }
 
 #anleitung {
@@ -110,10 +152,11 @@ html {
 
 #common_sport {
     font-size: 0.8rem;
-    color: grey;
+    color: var(--text-two);
     align-self: baseline;
     text-align: center;
 }
+
 
 #match {
     align-self: end;
@@ -121,11 +164,12 @@ html {
 }
 
 .match {
-    background-color: #fefefe;
+    background-color: var(--background-three);
+    color: var(--text-color);
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
-    border: 2px solid;
+    border: 2px solid var(--text-color);
     border-radius: 5px;
     min-height: 10rem;
     min-width: 20rem;
@@ -134,10 +178,6 @@ html {
     align-items: center;
     height: 160px;
     width: 400px;
-}
-
-.container {
-    margin: 1.5rem;
 }
 
 
@@ -159,42 +199,72 @@ h2 {
     text-transform: uppercase;
 }
 
-.button {
-    background-color: #f57449;
-    color: #fefefe;
+/* Button */
+
+button {
+    background-color: var(--accent-color);
+    color: #faf9f6;
     border: 1px solid black;
-    padding: 5px 15px;
-    font-size: 1rem;
     transition-duration: 0.4s;
     font-weight: bold;
-    margin: 1rem 0 2rem 0;
-    max-height: 2.5rem;
-    align-content: start;
 }
 
-.button:hover{
-    background-color: #fefefe;
-    color: #f57449;
+.button {
+    padding: 5px 15px;
+    font-size: 1rem;
+    margin: 1rem 0 2rem 0;
+    max-height: 2.5rem;
+}
+
+button:hover{
+    background-color: #faf9f6;
+    color: var(--accent-color);
     cursor: pointer;
 }
 
-
-#app > main > footer {
-    background-color: #7a7a7c;
-    color:#fefefe;
-    grid-column: 1 / 4;
-    font-size: 0.8rem;
-    line-height: 10%;
+#app > header > div > button {
+    justify-self: end;
+    border-style: hidden;
+    color: #1f1f1f;
+    font-weight: bolder;
+    font-size: 2rem;
+    width: 50px;
+    padding: 0;
+    align-self: center;
+    text-align: center;
+    line-height: 90%;
 }
 
-
-#app > main > footer > div a {
-    color:#fefefe;
-    padding: 0 0.5rem;
+#app > header > div > button > #dark_mode {
+    display: none;                  /* Verbirgt das Element vollständig */
+    opacity: 0;
+    transition: opacity 0.6s ease;  /* Übergang für das Einblenden */
+    background-color: #1f1f1f;
+    color: #fff;
+    white-space: nowrap;
+    font-size: 1rem;
+    font-weight: unset;
+    margin: 0;
 }
 
-#app > main > footer > div {
-    display: flex;
+#app > header > div > button:hover {
+    color: #faf9f6;
+    background-color: #1f1f1f;
+    border-radius: 5px;
+    width: 150px;
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    justify-items: center;
     align-items: center;
-    justify-content: center;
+}
+
+#app > header > div > button:hover > #dark_mode {
+    display: block;                 /* Text wird angezeigt */
+    animation: showText 1.7s;       /* Startet die Animation zum Einblenden nach einer Sekunde */
+    animation-fill-mode: forwards;  /* Hält den letzten Zustand der Animation */
+}
+
+@keyframes showText {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
 }

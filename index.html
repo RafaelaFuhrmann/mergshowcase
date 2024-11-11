@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./resources/style.css">
-    <title>Document</title>
+    <title>Merg Sport</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
@@ -15,8 +15,11 @@
 </head>
 <body id="app" onload="brython()">
     <header>
-        <a href="../index.html"><img src="./resources/images/MERG Pillow.png" alt=""></a>
-        <a href="profile.html"><img class="profile" src="./resources/images/profile_icon.png" alt=""></a>
+        <a href="../merg sports html/index.html"><img src="./resources/images/MERG Pillow.png" alt=""></a>
+        <div>
+            <button onclick="toggleDarkMode()"><span id="sun_moon">☾</span><p id="dark_mode">dark mode</p></button>
+            <a href="profile.html"><img class="profile" src="./resources/images/profile_icon.png" alt=""></a>
+        </div>
     </header>
     <main>
         <form id="add-form" class="daten">
@@ -54,5 +57,10 @@
         </div>
     </main>
     <script type="text/python" src="./resources/main.py"></script>
+    <script>
+        function toggleDarkMode() {
+            document.body.classList.toggle("dark_mode");
+        }
+    </script>
 </body>
 </html>

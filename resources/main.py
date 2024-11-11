@@ -52,7 +52,7 @@ def match(event):
     matches.sort(reverse=True)
 
     if len(matches) == 0:
-        document['match'].text = "Bitte wähle mindestens eine Sportart aus."
+        document['anleitung'].text = "Bitte wähle mindestens eine Sportart aus."
     else:
         update_display()
 
@@ -91,9 +91,18 @@ def prev_entry(event):
         current_index = len(matches) - 1  # Zum letzten Eintrag
     update_display()
 
+def dark_mode(event):
+    if document['dark_mode'].text == f'dark mode':
+        document['dark_mode'].text = f'light mode'
+        document['sun_moon'].text = f'☼'
+    else:
+        document['dark_mode'].text = f'dark mode'
+        document['sun_moon'].text = f'☾'
+
 # Event-Listener für die Buttons
 document['next-button'].bind('click', next_entry)
 document['prev-button'].bind('click', prev_entry)
-
+document['dark_mode'].bind('click', dark_mode)
+document['sun_moon'].bind('click', dark_mode)
 # Initiales Setup
 update_display()
